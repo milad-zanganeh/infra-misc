@@ -1,18 +1,30 @@
 Vagrant.configure("2") do |config|
-    config.vm.box = "generic/debian12"
-  
-    config.vm.network "private_network",
-                      ip: "192.168.122.121",
-                      libvirt__network_name: "default"
-  
-    config.vm.synced_folder ".", "/vagrant",
+  BOX_NAME = "generic/debian12"
+
+  config.vm.provider :libvirt do |lv|
+    lv.uri    = "qemu:///system"
+    lv.memory = 2048
+    lv.cpus   = 2
+    lv.storage_pool_name = "vagrant_pool"
+  end
+  nodes = {
+    "vm1" => "192.168.122.121",
+    "vm2" => "192.168.122.122",
+    "vm3" => "192.168.122.123",
+  }
+
+  nodes.each do |name, ip|
+    config.vm.define name do |node|
+      node.vm.box = BOX_NAME
+      node.vm.hostname = name
+
+      node.vm.network "private_network",
+                      ip: ip,
+                      libvirt__network_name: "vagrant_pool"
+
+      node.vm.synced_folder ".", "/vagrant",
                              type: "rsync",
                              rsync__exclude: [".git/", ".vagrant/"]
-  
-    config.vm.provider :libvirt do |lv|
-      lv.uri    = "qemu:///system"
-      lv.memory = 2048
-      lv.cpus   = 2
     end
   end
-  
+end
