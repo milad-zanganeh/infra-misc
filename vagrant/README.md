@@ -10,7 +10,7 @@ Before using this Vagrant setup, ensure you have the following installed:
 - [KVM](https://help.ubuntu.com/community/KVM) and libvirt
 - [Vagrant libvirt plugin](https://github.com/vagrant-libvirt/vagrant-libvirt)
 
-## KVM Installation (Ubuntu/Debian)
+## KVM Installation
 
 ### Install KVM and libvirt
 ```bash
@@ -18,7 +18,7 @@ Before using this Vagrant setup, ensure you have the following installed:
 sudo apt update
 
 # Install KVM and libvirt
-sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils libvirt-dev
 
 # Add your user to libvirt group
 sudo usermod -a -G libvirt $USER
@@ -28,6 +28,16 @@ sudo systemctl start libvirtd
 sudo systemctl enable libvirtd
 
 # Log out and back in for group changes to take effect
+```
+## Vagrant Installation
+
+### Add Repository and install package
+```bash
+wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+sudo apt update && sudo apt install vagrant
 ```
 
 ### Install Vagrant libvirt plugin
