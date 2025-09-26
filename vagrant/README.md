@@ -14,16 +14,13 @@ Before using this Vagrant setup, ensure you have the following installed:
 
 ### Install KVM and libvirt
 ```bash
-# Update package list
-sudo apt update
-
 # Install KVM and libvirt
+sudo apt update 
 sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils libvirt-dev
 
 # Add your user to libvirt group
 sudo usermod -a -G libvirt $USER
 
-# Start and enable libvirt service
 sudo systemctl start libvirtd
 sudo systemctl enable libvirtd
 

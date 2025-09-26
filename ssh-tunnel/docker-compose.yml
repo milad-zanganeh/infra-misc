@@ -1,0 +1,102 @@
+services:
+  ssh-user1:
+    build: .
+    container_name: ssh_user1
+    ports:
+      - "2221:22"
+    environment:
+      SSH_USER: "user1"
+      SSH_PASS: "uThiadeishu1aiNgaesoof3m"
+    restart: unless-stopped
+
+  ssh-user2:
+    build: .
+    container_name: ssh_user2
+    ports:
+      - "2222:22"
+    environment:
+      SSH_USER: "user2"
+      SSH_PASS: "aipohv1aex5eenguK8EiMohf"
+    restart: unless-stopped
+
+  ssh-user3:
+    build: .
+    container_name: ssh_user3
+    ports:
+      - "2223:22"
+    environment:
+      SSH_USER: "user3"
+      SSH_PASS: "aeru7aiGou1yeethah9seegu"
+    restart: unless-stopped
+  
+  ssh-user4:
+    build: .
+    container_name: ssh_user4
+    ports:
+      - "2224:22"
+    environment:
+      SSH_USER: "user4"
+      SSH_PASS: "aeD1meebahW7aing4Sie8Ob3"
+    restart: unless-stopped
+
+  ssh-user5:
+    build: .
+    container_name: ssh_user5
+    ports:
+      - "2225:22"
+    environment:
+      SSH_USER: "user5"
+      SSH_PASS: "IeSh2air9keimaec0ieVi3ai"
+    restart: unless-stopped
+
+  ssh-user6:
+    build: .
+    container_name: ssh_user6
+    ports:
+      - "2226:22"
+    environment:
+      SSH_USER: "user6"
+      SSH_PASS: "Nus9Iwaethiayi4ushoow2se"
+    restart: unless-stopped
+
+  ssh-user7:
+    build: .
+    container_name: ssh_user7
+    ports:
+      - "2227:22"
+    environment:
+      SSH_USER: "user7"
+      SSH_PASS: "eeRii4eiroo2ahj2cainga1r"
+    restart: unless-stopped
+
+  ssh-user8:
+    build: .
+    container_name: ssh_user8
+    ports:
+      - "2228:22"
+    environment:
+      SSH_USER: "user8"
+      SSH_PASS: "oQuied0Akahphoh4lae5fai6"
+    restart: unless-stopped
+
+  ssh-user9:
+    build: .
+    container_name: ssh_user9
+    ports:
+      - "2229:22"
+    environment:
+      SSH_USER: "user9"
+      SSH_PASS: "cai2aThahwoozeeGh1eeZie9"
+    restart: unless-stopped
+
+  ssh-user10:
+    build: .
+    container_name: ssh_user10
+    ports:
+      - "2230:22"
+    environment:
+      SSH_USER: "user10"
+      SSH_PASS: "aes2Yee8ozee7thai7ohn7bu"
+    restart: unless-stopped
+
+
